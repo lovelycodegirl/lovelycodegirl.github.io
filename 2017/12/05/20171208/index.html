@@ -7,16 +7,16 @@
   
   <title>前端基础知识点整理 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTML和CSSH5兼容性处理    创建一个这个标签.    使用html5shiv.js    搭配 cc:ie6条件注释表单类型两个事件    oninput:当表单的值发生改变时立即出发。（HTML5新增）    onchange:当表单的值发生改变并且失去焦点的时候触发。表单验证    email     email类型，在提交表单时，会验证表单的内容（只能初略的验证）    url">
+  <meta name="description" content="HTML和CSSH5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端基础知识点整理">
 <meta property="og:url" content="http://yoursite.com/2017/12/05/20171208/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="HTML和CSSH5兼容性处理    创建一个这个标签.    使用html5shiv.js    搭配 cc:ie6条件注释表单类型两个事件    oninput:当表单的值发生改变时立即出发。（HTML5新增）    onchange:当表单的值发生改变并且失去焦点的时候触发。表单验证    email     email类型，在提交表单时，会验证表单的内容（只能初略的验证）    url">
-<meta property="og:updated_time" content="2017-12-08T07:15:06.000Z">
+<meta property="og:description" content="HTML和CSSH5">
+<meta property="og:updated_time" content="2017-12-08T07:47:09.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端基础知识点整理">
-<meta name="twitter:description" content="HTML和CSSH5兼容性处理    创建一个这个标签.    使用html5shiv.js    搭配 cc:ie6条件注释表单类型两个事件    oninput:当表单的值发生改变时立即出发。（HTML5新增）    onchange:当表单的值发生改变并且失去焦点的时候触发。表单验证    email     email类型，在提交表单时，会验证表单的内容（只能初略的验证）    url">
+<meta name="twitter:description" content="HTML和CSSH5">
   
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -85,7 +85,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>HTML和CSS<br>H5<br>兼容性处理<br>    创建一个这个标签.<br>    使用html5shiv.js    搭配 cc:ie6条件注释<br>表单类型<br>两个事件<br>    oninput:当表单的值发生改变时立即出发。（HTML5新增）<br>    onchange:当表单的值发生改变并且失去焦点的时候触发。<br>表单验证<br>    email  <input type="email">   email类型，在提交表单时，会验证表单的内容（只能初略的验证）<br>    url  <input type="url">  url类型<br>    require  <input type="text" require="">  非空校验<br>    pattern  <input type="text" pattern="[1-9]\d{4,10}">   自定义规则<br>其他表单属性<br>         autocomplete   <input type="text" autocomplete="off" name="age">  自动补全，默认为on，值为off的时候表示关闭，一定要有name属性才生效。<br>        multiple   <input type="file" multiple>   支持多个文件上传<br>        form   <input type="text " form="myForm">  配合form表单的id进行关联，让input框可以写在任意位置。<br>        list   <input type="text " list="myList">  配合datalist使用<br>音频<br>    <audio src="./music/rain.mp3" controls loop autoplay></audio><br>    autoplay 自动播放<br>    controls 是否显不默认播放控件<br>    loop 循环播放<br>视频<br>    <video src="./video/video.mp4" controls loop autoplay></video><br>    autoplay 自动播放<br>    controls 是否显不默认播放控件<br>    loop 循环播放<br>     poster:视频没有播放的时候的预览图片，海报<br>音视频常用的几个方法<br>    play:控制视频播放<br>    pause：控制视频暂停<br>    load：重新载入视频<br>    width:设置播放窗口的宽度或者高度    只用设置一个  ,会等比例缩放<br>获取元素的新方法<br>    根据类型查找元素，返回一个伪数组,document.getElementsByClassName(“className”)<br>    通过css选择器获取元素，返回符合要求的第一个元素,注意返回结果是对象 document.querySelector(“css选择器”)<br>    通过css选择器获取元素，返回伪数组  document.querySelectorAll(“css选择器”)<br>类名操作<br>    添加类  node.classList.add(“classname”);<br>    移除类  node.classList.remove(“classname”);<br>    切换类   node.classList.toggle(“classname”);<br>    判断类  node.classList.contains(“classname”);<br>自定义属性，其格式如下data-*=””<br>1、读取 demo.dataset[‘name’] 或者 demo.dataset[‘age’]<br>2、设置demo.dataset[‘name’] = ‘web developer’<br>3、demo.dataset[‘userName’]//如果-比较多，需要转换成驼峰命名法。<br>进度条有很大的兼容性</p>
+        <p>HTML和CSS<br>H5<br><a id="more"></a><br>兼容性处理<br>    创建一个这个标签.<br>    使用html5shiv.js    搭配 cc:ie6条件注释<br>表单类型<br>两个事件<br>    oninput:当表单的值发生改变时立即出发。（HTML5新增）<br>    onchange:当表单的值发生改变并且失去焦点的时候触发。<br>表单验证<br>    email  <input type="email">   email类型，在提交表单时，会验证表单的内容（只能初略的验证）<br>    url  <input type="url">  url类型<br>    require  <input type="text" require="">  非空校验<br>    pattern  <input type="text" pattern="[1-9]\d{4,10}">   自定义规则<br>其他表单属性<br>         autocomplete   <input type="text" autocomplete="off" name="age">  自动补全，默认为on，值为off的时候表示关闭，一定要有name属性才生效。<br>        multiple   <input type="file" multiple>   支持多个文件上传<br>        form   <input type="text " form="myForm">  配合form表单的id进行关联，让input框可以写在任意位置。<br>        list   <input type="text " list="myList">  配合datalist使用<br>音频<br>    <audio src="./music/rain.mp3" controls loop autoplay></audio><br>    autoplay 自动播放<br>    controls 是否显不默认播放控件<br>    loop 循环播放<br>视频<br>    <video src="./video/video.mp4" controls loop autoplay></video><br>    autoplay 自动播放<br>    controls 是否显不默认播放控件<br>    loop 循环播放<br>     poster:视频没有播放的时候的预览图片，海报<br>音视频常用的几个方法<br>    play:控制视频播放<br>    pause：控制视频暂停<br>    load：重新载入视频<br>    width:设置播放窗口的宽度或者高度    只用设置一个  ,会等比例缩放<br>获取元素的新方法<br>    根据类型查找元素，返回一个伪数组,document.getElementsByClassName(“className”)<br>    通过css选择器获取元素，返回符合要求的第一个元素,注意返回结果是对象 document.querySelector(“css选择器”)<br>    通过css选择器获取元素，返回伪数组  document.querySelectorAll(“css选择器”)<br>类名操作<br>    添加类  node.classList.add(“classname”);<br>    移除类  node.classList.remove(“classname”);<br>    切换类   node.classList.toggle(“classname”);<br>    判断类  node.classList.contains(“classname”);<br>自定义属性，其格式如下data-*=””<br>1、读取 demo.dataset[‘name’] 或者 demo.dataset[‘age’]<br>2、设置demo.dataset[‘name’] = ‘web developer’<br>3、demo.dataset[‘userName’]//如果-比较多，需要转换成驼峰命名法。<br>进度条有很大的兼容性</p>
 <p><progress value="50" min="0" max="100"></progress></p>
 <p><meter value="30" min="0" max="100" low="20" high="80"></meter><br>网络状态 navigator.onLine<br>    返回用户当前的网络状况，是一个布尔值     true 为在线状态<br>    false  如果浏览器连不上网(包括局域网),就是离线(脱机)状态.<br>用户地理信息<br>    HTML5规范提供了一套保护用户隐私的机制。必须先得到用户明确许可，才能获取用户的位置信息。在获取地理位置之前，会询问用户，只有在获得许可之后，才能获取到用户的位置信息。<br>       获取当前的地理位置信息    navigator.geolocation.getCurrentPosition(successCallback, errorCallback)<br>      重复的获取当前的地理位置信息 navigator.geolocation.watchPosition(successCallback, errorCallback)<br>cookie<br>    使用cookie：操作太麻烦，最多只能存储4k ,每次请求都会带上cookie，所以用户名和密码、还有sessionID会存储在cookie中<br>    是以字符串形式存在的,这个字符串有固定的格式,  key=value; key1=value1<br>    在获取cookie内容时，一般需要通过正则或者字符串的方法进行处理，转换成对象，最终得到数据。<br>    使用jQuery.cookie插件操作cookie<br>window.sessionStorage的特点</p>
 <pre><code>1. 声明周期为关闭浏览器窗口
@@ -234,7 +234,7 @@ location对象
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/05/20171208/" data-id="cjaxkp8u20003zk8u59vm3nra" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/05/20171208/" data-id="cjaxlz5vn0001498ucbi6wx3c" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -243,19 +243,10 @@ location对象
     
 <nav id="article-nav">
   
-    <a href="/2017/12/05/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          hello
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/11/11/Hello/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/12/05/goodmorning/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">搭建自己的博客</div>
+      <div class="article-nav-title">致橡树</div>
     </a>
   
 </nav>
@@ -292,15 +283,11 @@ location对象
       <ul>
         
           <li>
-            <a href="/2017/12/05/goodmorning/">致橡树</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/05/hello-world/">hello</a>
-          </li>
-        
-          <li>
             <a href="/2017/12/05/20171208/">前端基础知识点整理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/05/goodmorning/">致橡树</a>
           </li>
         
           <li>
