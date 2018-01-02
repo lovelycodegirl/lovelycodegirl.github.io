@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -83,165 +83,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>装逼指南<br>本文中，所有的图形都是在单个标签内实现的，大量使用了 CSS3 中的 ::before 、::after 伪元素，transparent 、border，多重线性与径向渐变，多重内外阴影，如果你的效果不尽人意，请尝试在 Chrome 浏览器下预览。<br>装逼技巧<br>本文所有图形都会有个容器 <div class="css-cell"></div>包裹，其样式结构如下：<br>.css-cell{<br>    position: relative;<br>    width: 100%;<br>    height: 300px;<br>}</p>
-<p>所有图形都是在容器内实现的，其结构如下：<br><!--heart--></p>
-<div class="css-cell"><br>    <div class="heart"></div><br></div>
-
-<p>天气那一块有部分会多一个容器，其结构如下：</p>
-<div class="css-cell "><br>    <div class="breeze-container"><br>        <div class="breeze"></div><br>    </div><br></div>
-
-<p>为了方便起见，下面图形的具体实现，我只会贴出对应的类相应的样式代码~<br>装逼实战</p>
-<p>爱心</p>
-<p>利用 div 的正方形和伪类的圆型组合而成，具体代码如下：<br>/<em>heart</em>/<br>.heart{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%) rotate(45deg);<br>    background: red;<br>    width: 100px;<br>    height: 100px;<br>}<br>.heart:before,<br>.heart:after<br>{<br>    content: ‘’;<br>    position: absolute;<br>    top: 0;<br>    left: -50px;<br>    width: 100px;<br>    height: 100px;<br>    border-radius: 50%;<br>    background: red;<br>}<br>.heart:after{<br>    top: -50px;<br>    left: 0;<br>}</p>
-<p>气泡悬浮框</p>
-<p>利用 border 结合 transparent 特性实现，代码如下：<br>/<em>bubbly</em>/<br>.bubbly{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    background: #00ccbb;<br>    border-radius: 8px;<br>    width: 200px;<br>    padding: 40px 10px;<br>    text-align: center;<br>    color: white;<br>    font-size: 20px;<br>}<br>.bubbly:after {<br>    content: ‘’;<br>    position: absolute;<br>    bottom: 0;<br>    left: 50%;<br>    border: 34px solid transparent;<br>    border-top-color: #00ccbb;<br>    border-bottom: 0;<br>    border-left: 0;<br>    margin: 0 0 -34px -17px;<br>}</p>
-<p>切角</p>
-<p>利用使用线性渐变实现的，代码如下：<br>/<em>notching</em>/<br>.notching{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    width: 200px;<br>    padding: 60px 20px;<br>}<br>.notching{<br>    background:<br>            linear-gradient(135deg, transparent 15px, deeppink 0)<br>            top left,<br>            linear-gradient(-135deg, transparent 15px, deeppink 0)<br>            top right,<br>            linear-gradient(-45deg, transparent 15px, deeppink 0)<br>            bottom right,<br>            linear-gradient(45deg, transparent 15px, deeppink 0)<br>            bottom left;<br>    background-size: 50% 50%;<br>    background-repeat: no-repeat;<br>}</p>
-<p>弧形切角</p>
-<p>使用径向渐变实现，具体实现如下：<br>/<em>arc</em>/<br>.arc{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    width: 80px;<br>    padding: 80px;<br>}<br>.arc {<br>    background:<br>            radial-gradient(circle at top left,<br>            transparent 15px, yellowgreen 0) top left,<br>            radial-gradient(circle at top right,<br>            transparent 15px, yellowgreen 0) top right,<br>            radial-gradient(circle at bottom right,<br>            transparent 15px, yellowgreen 0) bottom right,<br>            radial-gradient(circle at bottom left,<br>            transparent 15px, yellowgreen 0) bottom left;<br>    background-size: 50% 50%;<br>    background-repeat: no-repeat;<br>}</p>
-<p>梯形</p>
-<p>利用伪类加旋转透视实现，具体实现如下：<br>/<em>trapezoid</em>/<br>.trapezoid{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    width: 160px;<br>    padding: 60px;<br>}<br>.trapezoid:before{<br>    content:””;<br>    position: absolute;<br>    top: 0;<br>    right: 0;<br>    bottom: 0;<br>    left: 0;<br>    transform:perspective(40px) scaleY(1.3) rotateX(5deg);<br>    transform-origin: bottom;<br>    background:dodgerblue;<br>    z-index:-1;<br>}</p>
-<p>饼图</p>
-<p>利用伪类、线性渐变、旋转实现，具体代码如下：<br>/<em>pie</em>/<br>.pie{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    width: 200px;<br>    height:200px;<br>    border-radius:50%;<br>    text-align: center;<br>    background-color:yellowgreen;<br>    overflow:hidden;<br>    background-image: linear-gradient(to right, transparent 50%, #655 0);<br>    cursor:pointer;<br>}<br>.pie:before{<br>    content:””;<br>    position:absolute;<br>    top:0;<br>    left:50%;<br>    width:50%;<br>    height:100%;<br>    background-color: inherit;<br>    transform-origin: left;<br>    z-index:-1;<br>    transform:rotate(.1turn);<br>}<br>.pie:hover:before{<br>    transition:all 1s;<br>    transform:rotate(.45turn);<br>}</p>
-<p>平行四边形</p>
-<p>利用伪类、拉伸实现，实现过程如下：<br>/<em>parallelogram</em>/<br>.parallelogram{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    width: 200px;<br>    height:120px;</p>
-<p>}<br>.parallelogram:before{<br>    content: ‘’;<br>    position: absolute;<br>    top: 0;<br>    right: 0;<br>    bottom: 0;<br>    left: 0;<br>    background-color:#00aabb;<br>    z-index:-1;<br>    transform: skew(.08turn);<br>}</p>
-<p>折角</p>
-<p>利用切角、伪类、渐变、旋转实现，代码如下：<br>/<em>corner</em>/<br>.corner{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    width: 120px;<br>    height:120px;<br>    padding:40px;<br>    background:linear-gradient(-150deg,transparent 1.5em, yellowgreen  0);<br>    border-radius:8px;<br>}<br>.corner:before{<br>    content: ‘’;<br>    position: absolute;<br>    top: 0; right: 0;<br>    background: linear-gradient(to left bottom,transparent 50%, rgba(0,0,0,.2) 0, rgba(0,0,0,.4)) 100% 0 no-repeat;<br>    width: 1.73em;<br>    height: 3em;<br>    transform: translateY(-1.3em) rotate(-30deg);<br>    transform-origin: bottom right;<br>    border-bottom-left-radius: inherit;<br>    box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);<br>}</p>
-<p>纯 CSS 方案实现背景变暗效果（hover按钮触发）</p>
-<p>鼠标移入</p>
-<p>利用 box-shadow 实现，具体代码如下：<br>/<em>spectiveBlur</em>/<br>.spectiveBlur{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width: 220px;<br>    height:160px;<br>    transform: translate(-50%, -50%);<br>    border-radius:10px;<br>    overflow:hidden;<br>    background:#E91E63;<br>    cursor:pointer;<br>    transition: transform .2s;<br>}<br>.spectiveBlur:hover{<br>    box-shadow:0 0 0 1920px rgba(0,0,0,.7);<br>    transform: translate(-50%, -50%) scale(1.2);<br>}</p>
-<p>条纹背景图</p>
-<p>主要是利用渐变实现，具体实现如下：</p>
-<p>/<em>stripe</em>/<br>.stripe{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    width: 200px;<br>    height:200px;<br>    background:deeppink;<br>    border-radius:.5em;<br>    background:repeating-linear-gradient(45deg,#CC9999, #CC9999 15px, #CCCCCC 0, #CCCCCC 30px)<br>}</p>
-<p>/<em>wave-stripe</em>/<br>.wave-stripe{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    width: 200px;<br>    height:200px;<br>    border-radius:.5em;<br>    background:<br>            linear-gradient(135deg, deeppink 25%, transparent 25%) -50px 0,<br>            linear-gradient(225deg, deeppink 25%, transparent 25%) -50px 0,<br>            linear-gradient(315deg, deeppink 25%, transparent 25%),<br>            linear-gradient(45deg, deeppink 25%, transparent 25%);<br>    background-size: 40px 40px;<br>}</p>
-<p>/<em>arrow-stripe</em>/<br>.arrow-stripe{<br>    position: absolute;<br>    top:50%;<br>    left: 50%;<br>    transform:translate(-50%,-50%);<br>    width: 200px;<br>    height:200px;<br>    border-radius:.5em;<br>    background:<br>            linear-gradient(45deg, #92baac 45px, transparent 45px)64px 64px,<br>            linear-gradient(45deg, #92baac 45px, transparent 45px,transparent 91px, #e1ebbd 91px, #e1ebbd 135px, transparent 135px),<br>            linear-gradient(-45deg, #92baac 23px, transparent 23px, transparent 68px,#92baac 68px,#92baac 113px,transparent 113px,transparent 158px,#92baac 158px);<br>    background-color:#e1ebbd;<br>    background-size: 128px 128px;<br>}</p>
-<p>混合模式背景图</p>
-<p>.colorful-stripe {<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    transform: translate(-50%, -50%);<br>    width: 300px;<br>    height: 200px;<br>    text-align: center;<br>    color: #fff;<br>    font-size: 200%;<br>    border-radius: .5em;<br>    background:<br>            linear-gradient(limegreen, transparent), linear-gradient(90deg, skyblue, transparent), linear-gradient(-90deg, coral, transparent);<br>    background-blend-mode: screen;<br>}</p>
-<p>太阳</p>
-<p>利用线性渐变、阴影、旋转实现，具体代码如下：<br>/<em>sun</em>/<br>.sun{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width:200px;<br>    height:260px;<br>    transform: translate(-50%, -50%);<br>    background:#0BF;<br>    border-radius:5px;<br>}<br>.sun:before{<br>    content:””;<br>    position: absolute;<br>    width: 80px;<br>    height: 80px;<br>    left: 50%;<br>    top: 50%;<br>    transform: translate(-50%, -50%);<br>    border-radius:50%;<br>    background:rgba(255, 238, 68, 1);<br>    box-shadow: 0 0 0 15px rgba(255,255,0,0.2),0 0 15px #fff;<br>    z-index:-10;<br>}<br>.sun:after{<br>    content:””;<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    height: 160px;<br>    width: 160px;<br>    transform: translate(-50%, -50%) rotate(30deg);<br>    z-index:-100;<br>    background-image:<br>            -webkit-linear-gradient(top,rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%),<br>            -webkit-linear-gradient(left,rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);<br>    background-size: 20px 100%, 100% 20px;<br>    background-repeat: no-repeat;<br>    background-position: center center, center center;<br>    animation:sunRotate 10s linear infinite;<br>}<br>@keyframes sunRotate{<br>    0%{<br>        transform: translate(-50%, -50%) rotate(30deg);<br>    }<br>    100%{<br>        transform: translate(-50%, -50%) rotate(390deg);<br>    }<br>}</p>
-<p>多云</p>
-<p>利用线性渐变、阴影、缩放实现，具体实现如下：<br>/<em>cloudy</em>/<br>.cloudy{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width:200px;<br>    height:260px;<br>    transform: translate(-50%, -50%);<br>    background:#2EB5E5;<br>    border-radius:5px;<br>}<br>.cloudy:before {<br>    content: “”;<br>    text-indent:23px;<br>    font-size:22px;<br>    line-height:40px;<br>    color:#333;<br>    position: absolute;<br>    height: 50px;width: 50px;<br>    background: #FFFFFF;<br>    left:30%;<br>    top:45%;<br>    transform: translate(-50%, -50%);<br>    border-radius: 50%;<br>    box-shadow:</p>
-<pre><code>        #FFFFFF 65px -15px 0 -5px,
-        #FFFFFF 25px -25px,
-        #FFFFFF 30px 10px,
-        #FFFFFF 60px 15px 0 -10px,
-        #FFFFFF 85px 5px 0 -5px,
-        #C8C8C8 35px -35px,
-        #C8C8C8 66px -27px 0 -5px,
-        #C8C8C8 91px -10px 0 -8px;
-animation: cloudy 5s ease-in-out infinite;
-</code></pre><p>}<br>.cloudy:after{<br>    content:””;<br>    position: absolute;<br>    top: 80%;<br>    left: 50%;<br>    height: 15px;<br>    width: 120px;<br>    background:rgba(0,0,0,.5);<br>    border-radius: 50%;<br>    transform: translate(-50%, -50%);<br>    animation: cloudy_shadow 5s ease-in-out infinite;<br>}<br>@keyframes cloudy {<br>    50%{<br>        transform: translate(-50%, -70%);<br>    }<br>    100%{<br>        transform: translate(-50%, -50%);<br>    }<br>}<br>@keyframes cloudy_shadow {<br>    50%{<br>        transform: translate(-50%, -50%) scale(0.8);<br>        background:rgba(0,0,0,.2);<br>    }<br>    100%{<br>        transform: translate(-50%, -50%) scale(1);<br>        background:rgba(0,0,0,.5);<br>    }<br>}</p>
-<p>/<em>cloudy2</em>/<br>.cloudy2{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width:200px;<br>    height:260px;<br>    transform: translate(-50%, -50%);<br>    background:#2EB5E5;<br>    border-radius:5px;<br>}<br>.cloudy2:before {<br>    content: “”;<br>    text-indent:23px;<br>    font-size:22px;<br>    line-height:40px;<br>    color:#333;<br>    position: absolute;<br>    height: 50px;width: 50px;<br>    background: #FFFFFF;<br>    left:30%;<br>    top:55%;<br>    transform: translate(-50%, -50%);<br>    border-radius: 50%;<br>    z-index:100;<br>    box-shadow:</p>
-<pre><code>        #FFFFFF 65px -15px 0 -5px,
-        #FFFFFF 25px -25px,
-        #FFFFFF 30px 10px,
-        #FFFFFF 60px 15px 0 -10px,
-        #FFFFFF 85px 5px 0 -5px;
-animation: cloudy2 5s ease-in-out infinite;
-</code></pre><p>}<br>.cloudy2:after{<br>    content:””;<br>    position: absolute;<br>    top: 45%;left: 63%;<br>    height: 60px;<br>    width: 60px;<br>    z-index:10;<br>    background:linear-gradient(180deg,#FE9F38 0%, #F46635 100%);<br>    border-radius: 50%;<br>    transform: translate(-50%, -50%);<br>    box-shadow: 0 0 10px 4px #FFA563;<br>    animation: cloudy2 10s ease-in-out infinite;<br>}<br>@keyframes cloudy2 {<br>    50%{<br>        transform: translate(-50%, -70%);<br>    }<br>    100%{<br>        transform: translate(-50%, -50%);<br>    }<br>}</p>
-<p>雨</p>
-<p>利用线性渐变、阴影、缩放实现，具体代码如下：<br>/<em>rainy</em>/<br>.rainy {<br>    position: absolute;<br>    width: 3px;<br>    height: 6px;<br>    top: 30%;<br>    left: 50%;<br>    background: #CCCCCC;<br>    border-radius: 50%;<br>    animation: rainy_rain .7s infinite linear;<br>}<br>.rainy:before {<br>    content: “”;<br>    color: #333;<br>    position: absolute;<br>    height: 50px;<br>    width: 50px;<br>    top: 30px;<br>    left: -40px;<br>    background: #CCC;<br>    transform: translate(-50%, -50%);<br>    border-radius: 50%;<br>    box-shadow: #CCC 65px -15px 0 -5px, #CCC 25px -25px, #CCC 30px 10px, #CCC 60px 15px 0 -10px, #CCC 85px 5px 0 -5px;<br>    animation: cloudy 5s ease-in-out infinite;<br>}<br>.rainy:after {<br>    content: “”;<br>    position: absolute;<br>    top: 120px;<br>    left: 50%;<br>    height: 15px;<br>    width: 120px;<br>    background: rgba(0, 0, 0, .5);<br>    border-radius: 50%;<br>    transform: translate(-50%, -50%);<br>    animation: cloudy_shadow 5s ease-in-out infinite;<br>}<br>@keyframes cloudy {<br>    50% {<br>        transform: translate(-50%, -70%);<br>    }<br>    100% {<br>        transform: translate(-50%, -50%);<br>    }<br>}<br>@keyframes cloudy_shadow {<br>    50% {<br>        transform: translate(-50%, -50%) scale(0.8);<br>        background: rgba(0, 0, 0, .2);<br>    }<br>    100% {<br>        transform: translate(-50%, -50%) scale(1);<br>        background: rgba(0, 0, 0, .5);<br>    }<br>}<br>@keyframes rainy_rain {<br>    0% {<br>        box-shadow: rgba(0, 0, 0, 0) -10px 30px, rgba(0, 0, 0, 0) 40px 40px, rgba(0, 0, 0, .3) -50px 75px, rgba(0, 0, 0, .3) 55px 50px, rgba(0, 0, 0, .3) -18px 100px, rgba(0, 0, 0, .3) 12px 95px, rgba(0, 0, 0, .3) -31px 45px, rgba(0, 0, 0, .3) 30px 35px;<br>    }<br>    25% {<br>        box-shadow: rgba(0, 0, 0, .3) -10px 45px, rgba(0, 0, 0, .3) 40px 60px, rgba(0, 0, 0, .3) -50px 90px, rgba(0, 0, 0, .3) 55px 65px, rgba(0, 0, 0, 0) -18px 120px, rgba(0, 0, 0, 0) 12px 120px, rgba(0, 0, 0, .3) -31px 70px, rgba(0, 0, 0, .3) 30px 60px;<br>    }<br>    26% {<br>        box-shadow: rgba(0, 0, 0, .3) -10px 45px, rgba(0, 0, 0, .3) 40px 60px, rgba(0, 0, 0, .3) -50px 90px, rgba(0, 0, 0, .3) 55px 65px, rgba(0, 0, 0, 0) -18px 40px, rgba(0, 0, 0, 0) 12px 20px, rgba(0, 0, 0, .3) -31px 70px, rgba(0, 0, 0, .3) 30px 60px;<br>    }<br>    50% {<br>        box-shadow: rgba(0, 0, 0, .3) -10px 70px, rgba(0, 0, 0, .3) 40px 80px, rgba(0, 0, 0, 0) -50px 100px, rgba(0, 0, 0, .3) 55px 80px, rgba(0, 0, 0, .3) -18px 60px, rgba(0, 0, 0, .3) 12px 45px, rgba(0, 0, 0, .3) -31px 95px, rgba(0, 0, 0, .3) 30px 85px;<br>    }<br>    51% {<br>        box-shadow: rgba(0, 0, 0, .3) -10px 70px, rgba(0, 0, 0, .3) 40px 80px, rgba(0, 0, 0, 0) -50px 45px, rgba(0, 0, 0, .3) 55px 80px, rgba(0, 0, 0, .3) -18px 60px, rgba(0, 0, 0, .3) 12px 45px, rgba(0, 0, 0, .3) -31px 95px, rgba(0, 0, 0, .3) 30px 85px;<br>    }<br>    75% {<br>        box-shadow: rgba(0, 0, 0, .3) -10px 95px, rgba(0, 0, 0, .3) 40px 100px, rgba(0, 0, 0, .3) -50px 60px, rgba(0, 0, 0, 0) 55px 95px, rgba(0, 0, 0, .3) -18px 80px, rgba(0, 0, 0, .3) 12px 70px, rgba(0, 0, 0, 0) -31px 120px, rgba(0, 0, 0, 0) 30px 110px;<br>    }<br>    76% {<br>        box-shadow: rgba(0, 0, 0, .3) -10px 95px, rgba(0, 0, 0, .3) 40px 100px, rgba(0, 0, 0, .3) -50px 60px, rgba(0, 0, 0, 0) 55px 35px, rgba(0, 0, 0, .3) -18px 80px, rgba(0, 0, 0, .3) 12px 70px, rgba(0, 0, 0, 0) -31px 25px, rgba(0, 0, 0, 0) 30px 15px;<br>    }<br>    100% {<br>        box-shadow: rgba(0, 0, 0, 0) -10px 120px, rgba(0, 0, 0, 0) 40px 120px, rgba(0, 0, 0, .3) -50px 75px, rgba(0, 0, 0, .3) 55px 50px, rgba(0, 0, 0, .3) -18px 100px, rgba(0, 0, 0, .3) 12px 95px, rgba(0, 0, 0, .3) -31px 45px, rgba(0, 0, 0, .3) 30px 35px;<br>    }<br>}</p>
-<p>微风</p>
-<p>利用border、transparent、实现，这个会多一层 div.breeze-container 包裹，样式代码如下：<br>/<em>breeze</em>/<br>.breeze-container{<br>    position: absolute;<br>    top: 50%;left: 50%;<br>    width:200px;height:260px;<br>    transform: translate(-50%, -50%);<br>    text-align:center;<br>    font-size:200%;<br>    color:#fff;<br>    background:#00BBFF;<br>    border-radius:5px;<br>}<br>.breeze-container:after{<br>    content:””;<br>    position:absolute;<br>    top:58%;<br>    left:50%;<br>    transform: translate(-50%, -50%);<br>    width:6px;<br>    height:70px;<br>    background:#fff;<br>}<br>.breeze{<br>    position:absolute;<br>    top: 30%;<br>    left: 50%;<br>    transform: translate(-50%, -50%) rotate(1deg);<br>    border-bottom:60px solid #fff;<br>    border-left:5px solid transparent;<br>    border-right:5px solid transparent;<br>    animation: windmill 12s infinite linear;<br>    transform-origin:50.5% 62px;<br>}<br>.breeze:before{<br>    position:absolute;<br>    top: 75px;left: -59px;<br>    content:””;<br>    border-right:60px solid #fff;<br>    border-top:5px solid transparent;<br>    border-bottom:5px solid transparent;<br>    transform:rotate(-30deg);<br>}<br>.breeze:after{<br>    position:absolute;<br>    top: 75px;left: -1px;<br>    content:””;<br>    border-left:60px solid #fff;<br>    border-top:5px solid transparent;<br>    border-bottom:5px solid transparent;<br>    transform:rotate(30deg);<br>}<br>@keyframes windmill{<br>    0%{<br>        transform: translate(-50%, -50%) rotate(0deg);<br>    }<br>    100%{<br>        transform: translate(-50%, -50%) rotate(360deg);<br>    }<br>}</p>
-<p>彩虹</p>
-<p>主要是利用border、box-shadow 实现，具体实现如下：<br>/<em>rainbow</em>/<br>.rainbow-container{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width:200px;<br>    height:260px;<br>    transform: translate(-50%, -50%);<br>    background:#F3D166;<br>    border-radius:5px;<br>}<br>.rainbow{<br>    position:absolute;<br>    top: 50%;<br>    left: 50%;<br>    transform: translate(-50%, -50%);<br>    height: 1px;width: 1px;<br>}<br>.rainbow:before{<br>    content:””;<br>    position:absolute;<br>    top: 50%;left: 50%;<br>    transform: translate(-50%, -50%) rotate(45deg);<br>    height: 70px;width: 70px;<br>    border-radius: 100px 0 0 0;<br>    box-shadow:</p>
-<pre><code>        #F44336 -2px -2px 0 1px,
-        #FF9800 -4px -4px 0 3px,
-        #FFEB3B -6px -6px 0 5px,
-        #8BC34A -8px -8px 0 7px,
-        #00BCD4 -10px -10px 0 9px,
-        #2196F3 -12px -12px 0 11px,
-        #9C27B0 -14px -14px 0 13px;
-animation: rainbow 5s ease-in-out infinite;
-</code></pre><p>}<br>.rainbow:after{<br>    content: “”;<br>    position: absolute;<br>    top: 70px;<br>    left: 50%;<br>    height: 15px;<br>    width: 120px;<br>    background: rgba(0, 0, 0, .5);<br>    border-radius: 50%;<br>    transform: translate(-50%, -50%);<br>    animation: cloudy_shadow 5s ease-in-out infinite;<br>}<br>@keyframes rainbow {<br>    50% {<br>        transform: translate(-50%, -55%) rotate(30deg);<br>    }<br>    100% {<br>        transform: translate(-50%, -50%) rotate(45deg);<br>    }<br>}<br>@keyframes cloudy_shadow {<br>    50% {<br>        transform: translate(-50%, -50%) scale(0.8);<br>        background: rgba(0, 0, 0, .2);<br>    }<br>    100% {<br>        transform: translate(-50%, -50%) scale(1);<br>        background: rgba(0, 0, 0, .5);<br>    }<br>}</p>
-<p>夜空</p>
-<p>主要是利用 box-shadow 实现 ， 实现方式如下：<br>/<em>starry</em>/<br>.starry-container{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width:200px;<br>    height:260px;<br>    transform: translate(-50%, -50%);<br>    background:#222233;<br>    border-radius:5px;<br>}<br>.starry{<br>    position:absolute;<br>    top: 30%;left: 40%;<br>    transform: translate(-50%, -50%);<br>    height: 4px;width: 4px;<br>    border-radius:50%;<br>    box-shadow:</p>
-<pre><code>        #FFFFFF -26px 77px 0 -1px,
-        rgba(255,255,255,0.1) -36px 59px 0 -1px,
-        rgba(255,255,255,0.1) -28px 89px 0 -1px,
-        #FFFFFF -35px 20px 0 -1px,
-        #FFFFFF 14px 100px,
-        rgba(255,255,255,0.1) 41px 60px,
-        #FFFFFF 34px 39px,
-        rgba(255,255,255,0.1) 14px 45px 0 -1px,
-        #FFFFFF 64px 12px 0 -1px,
-        rgba(255,255,255,0.1) 32px 96px 0 -1px,
-        #FFFFFF 64px 71px,
-        rgba(255,255,255,0.1) 60px 18px 0 -1px,
-        #FFFFFF 34px 9px,
-        rgba(255,255,255,0.1) -26px 55px 0 -1px;
-animation: starry_star 5s ease-in-out infinite;
-</code></pre><p>}<br>.starry:before{<br>    content:””;<br>    position:absolute;<br>    top: 20%;left: 50%;<br>    width:100px;height:100px;<br>    box-shadow: #FFFFFF -25px 0;<br>    transform: rotate(-5deg);<br>    border-radius: 50%;<br>    animation: starry 5s ease-in-out infinite;<br>}<br>@keyframes starry {<br>    50% {<br>        transform: rotate(10deg);<br>    }<br>}<br>@keyframes starry_star{<br>    50%{<br>        box-shadow:<br>                rgba(255,255,255,0.1) -26px 77px 0 -1px,</p>
-<pre><code>            #FFF -36px 59px 0 -1px,
-            #FFF -28px 89px 0 -1px,
-            rgba(255,255,255,0.1) -35px 20px 0 -1px,
-            rgba(255,255,255,0.1) 14px 100px,
-            #FFF 41px 60px,
-            rgba(255,255,255,0.1) 34px 39px,
-            #FFF 14px 45px 0 -1px,
-            rgba(255,255,255,0.1) 64px 12px 0 -1px,
-            #FFF 32px 96px 0 -1px,
-            rgba(255,255,255,0.1) 64px 71px,
-            #FFF 60px 18px 0 -1px,
-            rgba(255,255,255,0.1) 34px 9px,
-            #FFF -26px 55px 0 -1px;
-}
-</code></pre><p>}</p>
-<p>雷电</p>
-<p>主要是利用阴影、border实现，代码如下：<br>/<em>thunder</em>/<br>.thunder-container {<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width: 200px;<br>    height: 260px;<br>    transform: translate(-50%, -50%);<br>    background: #444;<br>    border-radius: 5px;<br>}<br>.thunder {<br>    color: #333;<br>    position: absolute;<br>    height: 50px;<br>    width: 50px;<br>    top: 40%;<br>    left: 30%;<br>    background: #222;<br>    transform: translate(-50%, -50%);<br>    border-radius: 50%;<br>    box-shadow:</p>
-<pre><code>        #222 65px -15px 0 -5px,
-        #222 25px -25px,
-        #222 30px 10px,
-        #222 60px 15px 0 -10px,
-        #222 85px 5px 0 -5px;
-animation: cloudy 5s ease-in-out infinite;
-</code></pre><p>}<br>.thunder:before {<br>    content: “”;<br>    position: absolute;<br>    top: 60px;<br>    left: 60px;<br>    border-left: 0px solid transparent;<br>    border-right: 8px solid transparent;<br>    border-top: 38px solid yellow;<br>    box-shadow: yellow -7px -32px;<br>    transform:rotate(30deg);<br>    transform-origin:center -50px;<br>    animation:stormy_thunder 2s steps(1, end) infinite;;<br>}<br>.thunder:after {<br>    content: “”;<br>    position: absolute;<br>    top: 120px;<br>    left: 64px;<br>    height: 15px;<br>    width: 120px;<br>    background: rgba(0, 0, 0, .5);<br>    border-radius: 50%;<br>    z-index:-1;<br>    transform: translate(-50%, -50%);<br>    animation: cloudy_shadow 5s ease-in-out infinite;<br>}<br>@keyframes cloudy {<br>    50% {<br>        transform: translate(-50%, -30px);<br>    }<br>}<br>@keyframes cloudy_shadow {<br>    50% {<br>        transform: translate(-50%, 0) scale(0.8);<br>        background: rgba(0, 0, 0, .2);<br>    }<br>}<br>@keyframes stormy_thunder{<br>    0%  {  transform: rotate(30deg); opacity:1; }<br>    5%  {  transform: rotate(-34deg); opacity:1; }<br>    10% {  transform: rotate(0deg); opacity:1; }<br>    15% {  transform: rotate(-34deg); opacity:0; }<br>}</p>
-<p>大雪</p>
-<p>利用阴影实现 ， 代码如下：<br>/<em>snow</em>/<br>.snowy-container {<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width: 200px;<br>    height: 260px;<br>    transform: translate(-50%, -50%);<br>    text-align: center;<br>    font-size: 200%;<br>    color: #fff;<br>    background: #607D8B;<br>    border-radius: 5px;<br>}<br>.snowy {<br>    position: absolute;<br>    width: 4px;<br>    height: 4px;<br>    border-radius:50%;<br>    top: 30%;<br>    left: 50%;<br>    background: #fff;<br>    border-radius: 50%;<br>    animation: snowy_rain 2s infinite linear;<br>}<br>.snowy:before {<br>    content: “”;<br>    color: #333;<br>    position: absolute;<br>    height: 50px;<br>    width: 50px;<br>    top: 30px;<br>    left: -40px;<br>    background: #eee;<br>    transform: translate(-50%, -50%);<br>    border-radius: 50%;<br>    box-shadow:</p>
-<pre><code>        #eee 65px -15px 0 -5px,
-        #eee 25px -25px,
-        #eee 30px 10px,
-        #eee 60px 15px 0 -10px,
-        #eee 85px 5px 0 -5px;
-animation: cloudy 5s ease-in-out infinite;
-</code></pre><p>}<br>.snowy:after {<br>    content: “”;<br>    position: absolute;<br>    top: 120px;<br>    left: 50%;<br>    height: 15px;<br>    width: 120px;<br>    background: rgba(0, 0, 0, .5);<br>    border-radius: 50%;<br>    transform: translate(-50%, -50%);<br>    animation: cloudy_shadow 5s ease-in-out infinite;<br>}<br>@keyframes cloudy {<br>    50% {<br>        transform: translate(-50%, -70%);<br>    }<br>    100% {<br>        transform: translate(-50%, -50%);<br>    }<br>}<br>@keyframes cloudy_shadow {<br>    50% {<br>        transform: translate(-50%, -50%) scale(0.8);<br>        background: rgba(0, 0, 0, .2);<br>    }<br>    100% {<br>        transform: translate(-50%, -50%) scale(1);<br>        background: rgba(0, 0, 0, .5);<br>    }<br>}<br>@keyframes snowy_rain {<br>    0% {<br>        box-shadow:<br>                rgba(255, 255, 255, 0) -10px 30px,<br>                rgba(255, 255, 255, 0) 40px 40px,<br>                rgba(255, 255, 255, .6) -50px 75px,<br>                rgba(255, 255, 255, .6) 55px 50px,<br>                rgba(255, 255, 255, .6) -18px 100px,<br>                rgba(255, 255, 255, .6) 12px 95px,<br>                rgba(255, 255, 255, .6) -31px 45px,<br>                rgba(255, 255, 255, .6) 30px 35px;<br>    }<br>    25% {<br>        box-shadow:<br>                rgba(255, 255, 255, .6) -10px 45px,<br>                rgba(255, 255, 255, .6) 40px 60px,<br>                rgba(255, 255, 255, .6) -50px 90px,<br>                rgba(255, 255, 255, .6) 55px 65px,<br>                rgba(255, 255, 255, 0) -18px 120px,<br>                rgba(255, 255, 255, 0) 12px 120px,<br>                rgba(255, 255, 255, .6) -31px 70px,<br>                rgba(255, 255, 255, .6) 30px 60px;<br>    }<br>    26% {<br>        box-shadow:<br>                rgba(255, 255, 255, .6) -10px 45px,<br>                rgba(255, 255, 255, .6) 40px 60px,<br>                rgba(255, 255, 255, .6) -50px 90px,<br>                rgba(255, 255, 255, .6) 55px 65px,<br>                rgba(255, 255, 255, 0) -18px 40px,<br>                rgba(255, 255, 255, 0) 12px 20px,<br>                rgba(255, 255, 255, .6) -31px 70px,<br>                rgba(255, 255, 255, .6) 30px 60px;<br>    }<br>    50% {<br>        box-shadow:<br>                rgba(255, 255, 255, .6) -10px 70px,<br>                rgba(255, 255, 255, .6) 40px 80px,<br>                rgba(255, 255, 255, 0) -50px 100px,<br>                rgba(255, 255, 255, .6) 55px 80px,<br>                rgba(255, 255, 255, .6) -18px 60px,<br>                rgba(255, 255, 255, .6) 12px 45px,<br>                rgba(255, 255, 255, .6) -31px 95px,<br>                rgba(255, 255, 255, .6) 30px 85px;<br>    }<br>    51% {<br>        box-shadow:<br>                rgba(255, 255, 255, .6) -10px 70px,<br>                rgba(255, 255, 255, .6) 40px 80px,<br>                rgba(255, 255, 255, 0) -50px 45px,<br>                rgba(255, 255, 255, .6) 55px 80px,<br>                rgba(255, 255, 255, .6) -18px 60px,<br>                rgba(255, 255, 255, .6) 12px 45px,<br>                rgba(255, 255, 255, .6) -31px 95px,<br>                rgba(255, 255, 255, .6) 30px 85px;<br>    }<br>    75% {<br>        box-shadow:<br>                rgba(255, 255, 255, .6) -10px 95px,<br>                rgba(255, 255, 255, .6) 40px 100px,<br>                rgba(255, 255, 255, .6) -50px 60px,<br>                rgba(255, 255, 255, 0) 55px 95px,<br>                rgba(255, 255, 255, .6) -18px 80px,<br>                rgba(255, 255, 255, .6) 12px 70px,<br>                rgba(255, 255, 255, 0) -31px 120px,<br>                rgba(255, 255, 255, 0) 30px 110px;<br>    }<br>    76% {<br>        box-shadow:<br>                rgba(255, 255, 255, .6) -10px 95px,<br>                rgba(255, 255, 255, .6) 40px 100px,<br>                rgba(255, 255, 255, .6) -50px 60px,<br>                rgba(255, 255, 255, 0) 55px 35px,<br>                rgba(255, 255, 255, .6) -18px 80px,<br>                rgba(255, 255, 255, .6) 12px 70px,<br>                rgba(255, 255, 255, 0) -31px 25px,<br>                rgba(255, 255, 255, 0) 30px 15px;<br>    }<br>    100% {<br>        box-shadow:<br>                rgba(255, 255, 255, 0) -10px 120px,<br>                rgba(255, 255, 255, 0) 40px 120px,<br>                rgba(255, 255, 255, .6) -50px 75px,<br>                rgba(255, 255, 255, .6) 55px 50px,<br>                rgba(255, 255, 255, .6) -18px 100px,<br>                rgba(255, 255, 255, .6) 12px 95px,<br>                rgba(255, 255, 255, .6) -31px 45px,<br>                rgba(255, 255, 255, .6) 30px 35px;<br>    }<br>}</p>
-<p>五角星</p>
-<p>主要是利用border、transparent、旋转实现，代码如下：<br>/<em>star</em>/<br>.five-star{<br>    position: absolute;<br>    top: 35%;<br>    right: 50%;<br>    transform: translate(-50%, -50%) scale(8);<br>    width: 0;<br>    height: 0;<br>    display: block;<br>    border-left: 3.04px solid transparent;<br>    border-right: 3.24px solid transparent;<br>    border-bottom: 10px solid #98DBE3;<br>    -webkit-filter: drop-shadow(1px .5px 1px #ccc);<br>    cursor: pointer;<br>}<br>.five-star:before{<br>    content: “”;<br>    position: absolute;<br>    top: 8.65px;<br>    left: -8.82px;<br>    width: 0;<br>    height: 0;<br>    color: #98DBE3;<br>    display: block;<br>    border-left: 12.5px solid transparent;<br>    border-right: 12.5px solid transparent;<br>    border-bottom: 9.08px solid #98DBE3;<br>    transform-origin: top center;<br>    transform: rotate(36deg);<br>}<br>.five-star:after{<br>    content: “”;<br>    position: absolute;<br>    top: 8.65px;<br>    left: -15px;<br>    width: 0;<br>    height: 0;<br>    color: #98DBE3;<br>    display: block;<br>    border-left: 12.5px solid transparent;<br>    border-right: 12.5px solid transparent;<br>    border-bottom: 9.08px solid #98DBE3;<br>    transform-origin: top center;<br>    transform: rotate(-36deg);<br>}</p>
-<p>太极八卦</p>
-<p>利用 box-shadow 实现 ， 代码很简单：<br>/<em>TaiChi</em>/<br>.TaiChi{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width: 200px;<br>    height: 200px;<br>    transform: translate(-50%, -50%);<br>    box-shadow:0 0 2px #ddd;<br>    border-radius:50%;<br>    background-image:<br>            radial-gradient(#000 12.5px, transparent 12.5px),<br>            radial-gradient(#fff 12.5px, transparent 12.5px),<br>            radial-gradient(#fff 50px, transparent 50px),<br>            radial-gradient(#000 50px, transparent 50px),<br>            linear-gradient(90deg,#000 100px, #fff 100px);<br>    background-position:center 50px,center -50px,center 50px,center -50px,0 0;<br>}</p>
-<p>美队盾牌</p>
-<p>利用 渐变 实现 ， 代码如下：<br>/<em>captainAmerica</em>/<br>.captainAmerica{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width: 200px;<br>    height: 200px;<br>    transform: translate(-50%, -50%);<br>    background:<br>            linear-gradient(45deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 65%),<br>            linear-gradient(-45deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 65%),<br>            linear-gradient(to right, rgba(0,0,0,0) 35%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 65%),<br>            linear-gradient(to bottom, rgba(0,0,0,0) 35%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 65%),<br>            radial-gradient(ellipse at center, #0033b0 20%, #ce0021 20%, #ce0021 35%, #eee 35%, #eee 55%, #ce0021 55%);<br>    border-radius: 50%;<br>    box-shadow: 0 3px 0 #a20917,0 4px 2px 2px #eee;<br>}<br>.captainAmerica::before{<br>    content: ‘★’;<br>    position:absolute;<br>    top: 50%;left: 50%;<br>    transform: translate(-50%, -50%);<br>    margin-left:-3px;<br>    width: 50px;height:50px;<br>    font-family: simsun,Tahoma,Helvetica,Arial,SimHei,sans-serif;<br>    line-height: 47px;<br>    z-index: 1;<br>    border-radius: 50%;<br>    font-size: 55px;<br>    color: #fff;<br>    text-align:center;<br>    text-shadow: 2px 1px 2px #777;<br>}</p>
-<p>纽扣</p>
-<p>利用 渐变、阴影 实现 ， 实现方法如下：<br>/<em>button</em>/<br>.button{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    transform: translate(-50%, -50%);<br>    width: 180px;<br>    height: 180px;<br>    background: #87ceeb;<br>    border-radius: 50%;<br>    box-shadow:<br>            inset 0 5px 5px #87ceeb,<br>            inset 0 17px 5px rgba(255,255,255,0.7),<br>            inset 0 -3px 3px rgba(255,255,255,0.3),<br>            inset 0 -10px 10px rgba(0,0,0,0.3),<br>            inset 0 -15px 10px #45b3e0,<br>            0 7px 10px rgba(0,0,0,0.3);<br>}<br>.button::before{<br>    content: ‘’;<br>    position:absolute;<br>    top: 50%;left: 50%;<br>    width: 110px;height: 106px;<br>    margin-left: -55px;margin-top: -55px;<br>    background-image:<br>            radial-gradient(circle at 38px 38px, #333 10px, transparent 10px),<br>            radial-gradient(circle at 73px 73px, #333 10px, transparent 10px),<br>            radial-gradient(circle at 38px 73px, #333 10px, transparent 10px),<br>            radial-gradient(circle at 73px 38px, #333 10px, transparent 10px);<br>    border-radius: 50%;<br>    border-top: 1px solid rgba(0,0,0,0.6);<br>    border-bottom: 1px solid rgba(255,255,255,0.6);<br>    box-shadow:<br>            inset 0 20px 2px rgba(255,255,255,0.3),<br>            3px -15px 7px -4px rgba(0,0,0,0.3),<br>            0 -14px 10px 5px #45b3e0,<br>            0 2px 5px 5px #87ceeb,<br>            0 10px 5px 5px rgba(255,255,255,0.6);<br>}<br>.button::after{<br>    content: ‘’;<br>    position:absolute;<br>    top: 50%;left: 50%;<br>    width: 50px;height: 50px;<br>    margin-left: -25px;<br>    margin-top: -23px;<br>    background-image:<br>            linear-gradient(to right, transparent 35%, #000080 35%, #4682b4 40%, #000080 45%, #4682b4 50%, #000080 55%, #4682b4 60%, #000080 65%, transparent 65%),<br>            linear-gradient(to bottom, transparent 35%, #000080 35%, #4682b4 40%, #000080 45%, #4682b4 50%, #000080 55%, #4682b4 60%, #000080 65%, transparent 65%);<br>    border-radius: 50%;<br>    transform: rotate(45deg);<br>}</p>
-<p>Chrome</p>
-<p>利用渐变实现 , 具体如下：<br>/<em>chrome</em>/<br>.Chrome{<br>    position: absolute;<br>    top: 50%;left: 50%;<br>    width: 180px;height: 180px;<br>    transform: translate(-50%, -50%);<br>    box-shadow:0 0px 4px #999,0 0 2px #ddd inset;<br>    border-radius:50%;<br>    background-image:<br>            radial-gradient(#4FACF5 0%,#2196F3 28%, transparent 28%),<br>            radial-gradient(#fff 33%, transparent 33%),<br>            linear-gradient(-50deg,#FFEB3B 34%, transparent 34%),<br>            linear-gradient(60deg,#4CAF50 33%, transparent 33%),<br>            linear-gradient(180deg,#FF756B 0%, #F44336 30%, transparent 30%),<br>            linear-gradient(-120deg,#FFEB3B 40%, transparent 40%),<br>            linear-gradient(-60deg,#FFEB3B 30%, transparent 30%),<br>            linear-gradient(0deg,#4CAF50 45%, transparent 45%),<br>            linear-gradient(60deg,#4CAF50 30%, transparent 30%),<br>            linear-gradient(120deg,#F44336 50%, transparent 50%),<br>            linear-gradient(180deg,#F44336 30%, transparent 30%);<br>    background-position:0 0;<br>}</p>
-<p>Opera</p>
-<p>利用渐变实现 , 代码如下：<br>/<em>Opera</em>/<br>.Opera{<br>    position: absolute;<br>    top: 50%;left: 50%;<br>    width: 170px;height: 200px;<br>    transform: translate(-50%, -50%);<br>    border-radius:50%;<br>    box-shadow:0 2px 4px #333;<br>    background-image:<br>            linear-gradient(rgb(254, 135, 138) 0%, rgb(231, 22, 22) 50%, rgb(128, 0, 0) 85%, rgb(184, 3, 4) 100%);<br>}<br>.Opera:after{<br>    content:””;<br>    position: absolute;<br>    top:50%;left:50%;<br>    width: 60px;height: 180px;<br>    transform: translate(-50%, -50%);<br>    border-radius:50%;<br>    background:#fff;<br>}<br>.Opera:before{<br>    content:””;<br>    position: absolute;<br>    top:50%;left:50%;<br>    width: 72px;height: 185px;<br>    transform: translate(-50%, -50%);<br>    border-radius:50%;<br>    background:rgba(0,0,0,.4);<br>}</p>
-<p>IE</p>
-<p>利用渐变、多重阴影实现 ， 代码实现如下：<br>/<em>IE</em>/<br>.IE{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width:200px;<br>    height:200px;<br>    transform: translate(-50%, -50%);<br>    border-radius:50%;<br>    background-image:<br>            radial-gradient(#fff 38%, transparent 38%),<br>            radial-gradient(#09C 0%, #09C 100%);</p>
-<p>}<br>.IE:before{<br>    content: “”;<br>    width:285px;<br>    height:122px;<br>    background:none;<br>    border-radius:100%;<br>    position:absolute;<br>    top:33px;<br>    left:-45px;<br>    margin:auto;<br>    box-shadow:<br>            inset 0 12px 0 13px  #09c,<br>            -35px -8px 0 -5px #fff;<br>    transform: rotate(-35deg);<br>}<br>.IE:after {<br>    content: “”;<br>    width: 120px;<br>    height: 25px;<br>    background: #09c;<br>    position: absolute;<br>    top: 80px;<br>    left: 0;<br>    right: 0;<br>    margin: auto;<br>    box-shadow: 50px 23px 0 -2px #fff<br>}</p>
-<p>safari</p>
-<p>利用渐变、border、旋转实现 ， 具体代码如下：<br>/<em>safari</em>/<br>.safari{<br>    position: absolute;<br>    top: 50%;left: 50%;<br>    width:200px; height:200px;<br>    transform: translate(-50%, -50%);<br>    border-radius:50%;<br>    border:5px solid #E8E8E8;<br>    box-shadow:<br>            -1px 3px 1px 2px #999,<br>            -1px 3px 1px 2px #999 inset;<br>    background-image:<br>            radial-gradient(transparent 30%,#fff 30%,#fff 34%, transparent 34%),<br>            linear-gradient(rgba(255,255,255,.8) 100%, transparent 100%),<br>            linear-gradient(rgba(255,255,255,.8) 100%, transparent 100%),<br>            linear-gradient(rgba(255,255,255,.8) 100%, transparent 100%),<br>            linear-gradient(rgba(255,255,255,.8) 100%, transparent 100%),<br>            linear-gradient(#1DE3FF 0%, #1F52EF 100%);<br>    background-size: 50% 50%,20px 2px,20px 2px,2px 20px,2px 20px,100%,100%;<br>    background-repeat:no-repeat;<br>    background-position:center center, 175px center,5px center,center 175px,center 5px,0 0;</p>
-<p>}<br>.safari::before{<br>    content:””;<br>    position: absolute;<br>    top: 10px;left: 50%;<br>    border-radius:10px;<br>    border-bottom:100px solid rgba(255,255,255,.9);<br>    border-left:10px solid transparent;<br>    border-right:10px solid transparent;<br>    transform-origin:center 90px;<br>    z-index:-1;<br>    transform:translate(-50%, 0%) rotate(40deg);<br>}<br>.safari::after{<br>    content:””;<br>    position: absolute;<br>    top: 10px;left: 50%;<br>    border-radius:10px;<br>    border-bottom:100px solid rgba(255,0,0,.9);<br>    border-left:10px solid transparent;<br>    border-right:10px solid transparent;<br>    transform-origin:center 90px;<br>    transform:translate(-50%, 0%) rotate(220deg);<br>}<br>.safari:hover::before{<br>    transition:transform 1s;<br>    transform:translate(-50%, 0%) rotate(70deg);<br>}<br>.safari:hover::after{<br>    transition:transform 1s;<br>    transform:translate(-50%, 0%) rotate(250deg);<br>}</p>
-<p>firefox</p>
-<p>利用多重阴影实现 , 代码如下：<br>/<em>firefox</em>/<br>.firefox{<br>    position: absolute;<br>    top: 50%;left: 50%;<br>    width: 200px;height:200px;<br>    transform: translate(-50%, -50%);<br>    border:8px solid #eee;<br>    border-radius:50%;<br>    overflow:hidden;<br>    background:#F48D00;<br>    box-shadow:0 0 2px 0 #999;<br>}<br>.firefox::before{<br>    content: “”;<br>    width: 46px;<br>    height: 46px;<br>    background: #A4DFEF;<br>    border-radius: 100%;<br>    position: absolute;<br>    top: 90px;<br>    left: 50px;<br>    margin: auto;<br>    border: 1px solid #A4DFEF;<br>    box-shadow:<br>            -10px 0 0 5px rgba(164, 223, 239, .2),<br>            16px -60px 0 8px rgba(164, 223, 239, .2),<br>            -30px -50px 0 8px #F48D00,<br>            25px -38px 0 0px #A4DFEF,<br>            -30px -30px 0 12px #F48D00,<br>            15px -60px 0 8px #A4DFEF,<br>            33px 31px 0 -15px #A4DFEF,<br>            30px 17px 0 -13px #F48D00,<br>            20px -10px 0 0px #A4DFEF,<br>            -8px -0px 0 19px #F48D00,<br>            30px 17px 0 0px #A4DFEF,<br>            24px 30px 0 15px #F48D00,<br>            20px -6px 0 28px #A4DFEF,<br>            45px 10px 0 35px #F48D00,<br>            -5px -57px 0 8px #F48D00,<br>            20px -23px 0 45px #A4DFEF,<br>            -5px -80px 0 8px #A4DFEF,<br>            -30px -70px 0 8px #F48D00,<br>            -5px -57px 0 8px #F48D00,<br>            43px -11px 0 55px #F48D00,<br>            22px -39px 0 55px #A4DFEF;<br>}<br>.firefox::after{<br>    content: “”;<br>    width: 0px;<br>    height: 2px;<br>    background: linear-gradient(90deg,#F48D00 75% ,#333 30% );<br>    background-size: 35px 35px;<br>    position: absolute;<br>    top: 50px;<br>    left: 73px;<br>    margin: auto;<br>    border: solid;<br>    border-width: 12px 0 15px 30px;<br>    border-color: #A4DFEF #fff #A4DFEF transparent;<br>    box-shadow: inset 0px 0 0 50px #333;<br>}</p>
-<p>搜狗</p>
-<p>利用文字、阴影实现 , 具体代码如下：<br>/<em>sougou</em>/<br>.sogou{<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>    width: 200px;height:200px;<br>    transform: translate(-50%, -50%);<br>    border:8px solid #fff;<br>    box-shadow: 2px 1px 2px 2px #ccc;<br>    border-radius:50%;<br>    overflow:hidden;<br>    background:#4DA0ED;<br>}<br>.sogou::before{<br>    content:”S”;<br>    position: absolute;<br>    line-height: 185px;<br>    top:0;<br>    left:0;<br>    right:0;<br>    bottom:0;<br>    color:#fff;<br>    font-weight:600;<br>    font-size:320px;<br>    text-align:center;<br>    text-shadow:<br>            3px 0 0px #337FC4,<br>            -5px 0px 0px #CDE4F0,<br>            0px 8px 0px #387FBF;<br>    transform:rotate(2deg);<br>    z-index:-10;<br>    overflow:hidden;<br>}</p>
-<p>利用滤镜实现混合效果</p>
-<p>利用 fliter:blur() 、filter:contrast() 实现 ， 代码如下：<br>/<em>filter-mix</em>/<br>.filter-mix{<br>    position: absolute;<br>    top: 50%;left: 50%;<br>    transform: translate(-50%, -50%);<br>    width: 300px;height: 200px;<br>    -webkit-filter:contrast(20);<br>    background:#fff;<br>}<br>.filter-mix::before{<br>    content:””;<br>    position: absolute;<br>    width:120px;<br>    height:120px;<br>    border-radius: 50%;<br>    background:#333;<br>    top:40px;<br>    left:0px;<br>    z-index:2;<br>    -webkit-filter:blur(6px);<br>    box-sizing:border-box;<br>    animation:filterBallMove 10s ease-out infinite;<br>    -webkit-animation:filterBallMove 10s ease-out infinite;<br>}<br>.filter-mix::after{<br>    content:””;<br>    position: absolute;<br>    width:80px;<br>    height:80px;<br>    border-radius: 50%;<br>    background:#3F51B5;<br>    top:60px;<br>    right:0px;<br>    z-index:2;<br>    -webkit-filter:blur(6px);<br>    animation:filterBallMove2 10s ease-out infinite;<br>    -webkit-animation:filterBallMove2 10s ease-out infinite;</p>
-<p>}</p>
-<p>@keyframes filterBallMove{<br>    50%{<br>        left:200px;<br>    }<br>}</p>
-<p>@-webkit-keyframes filterBallMove{<br>    50%{<br>        left:200px;<br>    }<br>}</p>
-<p>@keyframes filterBallMove2{<br>    50%{<br>        right:200px;<br>    }<br>}</p>
-<p>@-webkit-keyframes filterBallMove2{<br>    50%{<br>        right:200px;<br>    }<br>}</p>
-<p>装逼总结<br>怎么样，是不是颠覆了你对 CSS3 的认识？<br>实际上 CSS3 带给我们的远不止这些东西，没有做不到，只有想不到，只有你脑洞够大，各种黑科技、酷炫的 CSS 必然也是手到擒来~<br>虽然你给不了 CSS3 全部，但它却把全部给了你，骚年，加油吧~</p>
-<p>作者：Chris威<br>链接：<a href="https://juejin.im/post/5a446d19f265da43052eebcc" target="_blank" rel="noopener">https://juejin.im/post/5a446d19f265da43052eebcc</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
+        <p>装逼指南<br>本文中，所有的图形都是在单个标签内实现的，大量使用了 CSS3 中的 ::before 、::after 伪元素，transparent 、border，多重线性与径向渐变，多重内外阴影，如果你的效果不尽人意，请尝试在 Chrome 浏览器下预览。<br>装逼技巧<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/01/02/css/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/02/css/" data-id="cjbxffxhx0003lh8uwizj3575" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2018/01/02/css/" data-id="cjbxfi1fx0002m18u24iikgk8" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -282,7 +133,7 @@ animation: cloudy 5s ease-in-out infinite;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/life/" data-id="cjbxffxhj0000lh8uyrh413i4" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/12/11/life/" data-id="cjbxfi1fv0001m18u180vaicz" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -323,7 +174,7 @@ animation: cloudy 5s ease-in-out infinite;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/05/前端基础知识点/" data-id="cjbxffxhy0004lh8uy4b9cedq" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2017/12/05/前端基础知识点/" data-id="cjbxfi1fz0004m18usy8dqp5u" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -367,7 +218,7 @@ animation: cloudy 5s ease-in-out infinite;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/11/Jquery/" data-id="cjbxffxht0001lh8unzw1wv3t" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/12/11/Jquery/" data-id="cjbxfi1fy0003m18uqa924ik8" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -409,7 +260,7 @@ animation: cloudy 5s ease-in-out infinite;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/09/搭建自己的博客/" data-id="cjbxffxhv0002lh8u06rjzk8q" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2015/09/09/搭建自己的博客/" data-id="cjbxfi1fm0000m18u431z8g83" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -435,7 +286,7 @@ animation: cloudy 5s ease-in-out infinite;
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">碎碎念</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li></ul>
     </div>
@@ -445,7 +296,7 @@ animation: cloudy 5s ease-in-out infinite;
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">爬坑</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
         
@@ -482,7 +333,7 @@ animation: cloudy 5s ease-in-out infinite;
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 猫咪桑<br>
-      Powered by 猫咪桑 <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
